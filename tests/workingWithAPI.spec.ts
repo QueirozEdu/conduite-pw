@@ -9,18 +9,6 @@ test.beforeEach(async ({ page }) => {
   });
 
   await page.goto('https://conduit.bondaracademy.com/');
-  await page.getByText('Sign in').click();
-  await page
-    .getByRole('textbox', {
-      name: 'Email',
-    })
-    .fill('eduardo@email.com');
-  await page
-    .getByRole('textbox', {
-      name: 'Password',
-    })
-    .fill('password');
-  await page.getByRole('button').click();
 });
 
 test('has title', async ({ page }) => {
@@ -35,18 +23,18 @@ test('has title', async ({ page }) => {
   });
 
   await page.getByText('Global Feed').click();
-  await page.getByText('Sign in').click();
-  await page
-    .getByRole('textbox', {
-      name: 'Email',
-    })
-    .fill('eduardo@email.com');
-  await page
-    .getByRole('textbox', {
-      name: 'Password',
-    })
-    .fill('password');
-  await page.getByRole('button').click();
+  // await page.getByText('Sign in').click();
+  // await page
+  //   .getByRole('textbox', {
+  //     name: 'Email',
+  //   })
+  //   .fill('eduardo@email.com');
+  // await page
+  //   .getByRole('textbox', {
+  //     name: 'Password',
+  //   })
+  //   .fill('password');
+  // await page.getByRole('button').click();
 
   await expect(page.locator('.navbar-brand')).toHaveText('conduit');
   await expect(page.locator('app-article-list h1').first()).toContainText('This is a mock test title');
